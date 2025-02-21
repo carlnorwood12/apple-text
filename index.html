@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backdrop Filter Blur on Text</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+	  background-color: black;
+    }
+
+
+    #svgWrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: url(https://images4.alphacoders.com/104/1047970.jpg) center / cover no-repeat;
+      width: 100%;
+      height: 100%;
+	    border-radius: 8px;
+    }
+    #svgWrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: -1;
+    }
+    #svg {
+      width: 100%;
+      height: 100%;
+      mask-image: url(./svgs/h1.svg);
+      mask-size: contain;
+      mask-position: center;
+      mask-repeat: no-repeat;
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(15px) saturate(500%);
+    }
+    p
+    {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="svgWrapper">
+    <div id="svg"></div>
+  </section>
+  
+</body>
+</html>
