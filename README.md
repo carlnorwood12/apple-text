@@ -1,2 +1,2 @@
-# apple-text
+# Apple text
 How to create apple text in css most simple
